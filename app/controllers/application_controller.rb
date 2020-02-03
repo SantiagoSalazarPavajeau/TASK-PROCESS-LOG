@@ -7,14 +7,20 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
+  get '/home' do
+    erb :home
+  end
+
   get "/registrations/signup" do
+    # get request for signup form
     erb :'/registrations/signup'
   end
 
-  # get request for signup form
+  
 
   post "/registrations" do
-    @user = User.create(name: params[:name], job: params[:job], email: params[:email], password: params[:password])
+    #  post request to get the users info
+    @user = Worker.create(name: params[:name], job: params[:job], email: params[:email], password: params[:password])
   end
 
 end
