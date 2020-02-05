@@ -9,5 +9,7 @@ ActiveRecord::Base.establish_connection(
 )
 
 require './app/controllers/application_controller'
-require './app/controllers/session_controller'
+require './app/controllers/sessions_controller'
+require './app/controllers/users_controller'
+
 require_all 'app'
