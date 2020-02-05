@@ -20,18 +20,10 @@ class ApplicationController < Sinatra::Base
 
   post "/registrations" do
     #  post request to get the users info
-    @worker = Worker.new(name: params[:name], job: params[:job], email: params[:email], password: params[:password])
-    @worker.save
-    session[:user_id] = @worker.id
+    @user = User.new(name: params[:name], job: params[:job], email: params[:email], password: params[:password])
+    @user.save
+    session[:user_id] = @user.id
     redirect '/users/home'
   end
-
- 
-
-  
-
-  
-
-
 
 end

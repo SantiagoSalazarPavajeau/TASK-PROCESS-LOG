@@ -7,9 +7,9 @@ class SessionsController <  ApplicationController
     end
     
     post '/sessions' do
-        @worker = Worker.find_by(email: params["email"])
-        if @worker && @worker.authenticate(params[:password])
-          session[:user_id] = @worker.id
+        @user = User.find_by(email: params["email"])
+        if @user && @user.authenticate(params[:password])
+          session[:user_id] = @user.id
           redirect '/users/home'
         else
           redirect '/users/failure'
@@ -20,6 +20,5 @@ class SessionsController <  ApplicationController
         session.clear
         redirect '/home'
     end 
-
 
 end

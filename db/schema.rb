@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20200130163510) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "workers", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "job"
     t.string   "email"
