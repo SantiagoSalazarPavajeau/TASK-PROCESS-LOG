@@ -13,17 +13,4 @@ class ApplicationController < Sinatra::Base
     erb :home
   end
 
-  get "/registrations/signup" do
-    # get request for signup form
-    erb :'/registrations/signup'
-  end
-
-  post "/registrations" do
-    #  post request to get the users info
-    @user = User.new(name: params[:name], job: params[:job], email: params[:email], password: params[:password])
-    @user.save
-    session[:user_id] = @user.id
-    redirect '/users/home'
-  end
-
 end
