@@ -5,7 +5,7 @@
 <h3> <ol><li><%=task.description%></li> </ol></h3>
 <%end%>
 <br>
-<form action="/job/<%= @job.id %>" method="post">
+<form action="/jobs/<%= @job.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete Job">
 </form>
