@@ -18,7 +18,7 @@ class SessionsController <  ApplicationController
     
     get '/sessions/logout' do
         session.clear
-        redirect '/home'
-    end 
+        redirect '/'
+    end
 
 end

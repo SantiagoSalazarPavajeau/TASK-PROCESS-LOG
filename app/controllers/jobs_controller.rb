@@ -13,7 +13,6 @@ class JobsController < ApplicationController
         #create new job form
         @tasks = Task.all
         erb :'/jobs/new'
-        
     end
 
     post '/jobs' do
@@ -55,7 +54,6 @@ class JobsController < ApplicationController
 
     put '/jobs/:id' do
         # replaces job
-
     end
 
     delete '/jobs/:id' do
@@ -64,8 +62,5 @@ class JobsController < ApplicationController
         @job.delete
         redirect to '/jobs'
     end
-
-
-
 
 end
