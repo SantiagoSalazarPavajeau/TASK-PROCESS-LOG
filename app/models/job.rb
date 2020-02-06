@@ -3,7 +3,8 @@ class Job
     #a job has many tasks
     #jobs have many processes through tasks
     #processes have many jobs through tasks
-    
+    has_many :tasks
+    has_many :job_processes, through :jobs
 end
 
 
