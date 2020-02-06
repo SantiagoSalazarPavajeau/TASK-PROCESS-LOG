@@ -1,4 +1,4 @@
-class CreateJobProcesses < ActiveRecord::Migration
+class CreateGlobalProcesses < ActiveRecord::Migration
   def change
     create_table :global_processes do |t|
       t.string :name

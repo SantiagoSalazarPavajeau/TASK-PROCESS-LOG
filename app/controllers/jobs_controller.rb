@@ -11,6 +11,7 @@ class JobsController < ApplicationController
 
     get '/jobs/new' do
         #create new job form
+        @tasks = Task.all
         erb :'/jobs/new'
         
     end
