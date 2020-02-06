@@ -18,7 +18,11 @@ class JobsController < ApplicationController
 
     post '/jobs' do
         #create one new job (button action)
-        @job = Job.create(:name => params[:job][:name])
+        @job = Job.create(params[:job])
+        #@job.tasks << Task.create(description: params["task"]["description"])
+        if !params["task"]["description"].empty?
+            @job.tasks << Task.create(description: params["task"]["description"])
+        end
         redirect to "/jobs/#{@job.id}"
     end
 

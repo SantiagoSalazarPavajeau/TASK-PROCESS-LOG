@@ -3,11 +3,21 @@
 <form method="POST" action="/jobs">
 
   <label for="name"> Name: </label>
-  <input type="text" id="job_name" name="job[name]">
+  <input type="text" id="job_name" name="job[name]" value="Minecraft Miner">
 
-  <input type="submit" value="Create New Job">
-</form>
+ 
 
+<h2> Available tasks: </h2>
 <% @tasks.each do |task| %>
-  <input type="checkbox" name="job[task_ids][]" id="<%= task.id %>" value="<%= task.id %>"><%= task.name %><br>
-<% end %>
+  <input type="checkbox" name="job[task_ids][]" id="<%= task.id %>" value="<%= task.id %>">  <%= task.description %><br>
+<% end %> 
+
+<h2> And/or, create a new task for a job: </h2>
+    <br>
+    <label>description:</label>
+      <input  type="text" name="task[description]" value= "Dig for diamonds">
+    <br>
+
+<input type="submit" value="Create New Job">  
+
+</form>
