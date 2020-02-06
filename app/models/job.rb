@@ -4,7 +4,7 @@ class Job
     #jobs have many processes through tasks
     #processes have many jobs through tasks
     has_many :tasks
-    has_many :job_processes, through :jobs
+    has_many :global_processes, through :jobs
 end
 
 
