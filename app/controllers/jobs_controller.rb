@@ -11,15 +11,20 @@ class JobsController < ApplicationController
 
     get '/jobs/new' do
         #create new job form
-        ern :'/jobs/new'
+        erb :'/jobs/new'
+        
     end
 
     post '/jobs' do
         #create one new job (button action)
+        @job = Job.create(:name => params[:params][:job][:name])
+        redirect to "jobs/#{@job.id}"
     end
 
     get '/jobs/:id' do
         # displays job with :id
+        @job = Job.find_by_id(params[:id])
+        erb :'jobs/show'
     end
 
     get '/jobs/:id/edit' do
