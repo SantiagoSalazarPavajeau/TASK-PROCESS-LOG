@@ -1,9 +1,11 @@
+require './config/environment'
+
 
 User.create(name: 'Santi', email: 'santi@gmail.com', password: 'password')
 
-global_process_1 = Process.create(name: 'Guitar Order')
-global_process_2 = Process.create(name: 'Custom Guitar Order')
-global_process_3 = Process.create(name: 'Guitar Rental Order')
+global_process_1 = GlobalProcess.create(name: 'Guitar Order')
+global_process_2 = GlobalProcess.create(name: 'Custom Guitar Order')
+global_process_3 = GlobalProcess.create(name: 'Guitar Rental Order')
 
 
 order_administrator = Job.create(name: 'Order Administrator')
