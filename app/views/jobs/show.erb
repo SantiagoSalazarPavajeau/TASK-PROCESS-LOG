@@ -1,7 +1,8 @@
-<h1> You have created the Job <%= @job.name%>  </h1>
+<h1> You have created the Job <%= @job.name%> =>  </h1>
+<h1> with tasks: </h1>
 
 <%@job.tasks.each do |task|%>
-<h3>With tasks: <ol><li><%=task.description%></li> </ol></h3>
+<h3> <ol><li><%=task.description%></li> </ol></h3>
 <%end%>
 <br>
 <form action="/job/<%= @job.id %>" method="post">

@@ -28,22 +28,28 @@ class JobsController < ApplicationController
 
     get '/jobs/:id' do
         # displays job with :id
-        @job = Job.find_by_id(params[:id])
+        @job = Job.find(params[:id])
         erb :'jobs/show'
     end
 
     get '/jobs/:id/edit' do
         # edit jobs form
-        @job = Job.find_by_id(params[:id])
+        @job = Job.find(params[:id])
+        @tasks = Task.all
         erb :'jobs/edit'
     end
 
     patch '/jobs/:id' do
         #modifies job with :id
-        @job = Job.find_by_id(params[:id])
-        @job.name = params[:job][:name]
-        binding.pry
-        @job.save
+        if !params[:job].keys.include?("task_ids")
+            params[:job]["task_ids"] = []
+        end
+        @job = Job.find(params[:id])
+        @job.update(params[:job])
+        if !params["task"]["description"].empty?
+            @job.tasks << Task.create(description: params["task"]["description"])
+        end
+        
         redirect to "/jobs/#{@job.id}"
     end
 

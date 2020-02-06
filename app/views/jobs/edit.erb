@@ -1,9 +1,26 @@
-<h1> Edit job: </h1>
+<h1> Edit job: <%=@job.name%> </h1>
 
 <form method="POST" action="/jobs/<%= @job.id%>">
 
   <input id="hidden" type="hidden" name="_method" value="patch">
-  <label for="name"> Name: </label>
-  <input type="text" id="job_name" name="job[name]" value = "<%=@job.name%>">
-  <input type="submit" value="Edit Job">
+
+  <label for="name"> Edit Job's Name: </label>
+<br>
+  <input type="text" name="job[name]" value = "<%=@job.name%>">
+<br>
+  
+  
+<h2> Available tasks: </h2>
+<% @tasks.each do |task| %>
+  <input type="checkbox" name="job[task_ids][]" id="<%= task.id %>" value="<%= task.id %>" <%='checked' if @job.tasks.include?(task) %>>  <%= task.description %><br>
+<% end %>
+
+<h2> And/or, create a new task for a job: </h2>
+<br>
+    <label>description:</label>
+      <input  type="text" name="task[description]" value= "Dig for diamonds">
+<br>
+
+<input type="submit" value="Edit Job">
+
 </form>
