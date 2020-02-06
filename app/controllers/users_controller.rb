@@ -11,12 +11,12 @@ class UsersController <  ApplicationController
       erb :'/users/failure'
     end
     
-    get "/registrations/signup" do
+    get "/users/signup" do
       # get request for signup form
-      erb :'/registrations/signup'
+      erb :'/users/signup'
     end
   
-    post "/registrations" do
+    post "/users" do
       #  post request to get the users info
       @user = User.new(name: params[:name], job: params[:job], email: params[:email], password: params[:password])
       @user.save
