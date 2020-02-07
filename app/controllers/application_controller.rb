@@ -13,4 +13,10 @@ class ApplicationController < Sinatra::Base
     erb :home
   end
 
+  get '/global_processes' do 
+    # index displays all jobs
+    @global_processes = GlobalProcess.all
+    erb :'/global_processes/index'
+  end
+
 end
