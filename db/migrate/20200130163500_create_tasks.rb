@@ -4,6 +4,7 @@ class CreateTasks < ActiveRecord::Migration
       t.string :description
       t.integer :job_id
       t.integer :global_process_id
+      t.integer :order
 
       t.timestamps null: false
     end
