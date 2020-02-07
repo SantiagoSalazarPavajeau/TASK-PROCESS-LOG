@@ -38,7 +38,6 @@ class ApplicationController < Sinatra::Base
   end
 
   delete '/global_processes/:id' do
-    # deletes job with :id
     @global_process = GlobalProcess.find(params[:id])
     @global_process.delete
     redirect to '/global_processes'
