@@ -10,3 +10,5 @@ Logout is s form wiht method delete
 
 refactor sessions to user view and controller
 
+update button global process not working
+
