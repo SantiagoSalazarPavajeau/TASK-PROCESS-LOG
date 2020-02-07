@@ -52,10 +52,6 @@ class JobsController < ApplicationController
         redirect to "/jobs/#{@job.id}"
     end
 
-    put '/jobs/:id' do
-        # replaces job
-    end
-
     delete '/jobs/:id' do
         # deletes job with :id
         @job = Job.find(params[:id])

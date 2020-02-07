@@ -6,3 +6,8 @@
 <h3> <ol><li><%=task.description%></li> </ol></h3>
 <%end%>
 <br>
+
+<form action="/global_processes/<%= @global_process.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Global Process">
+</form>
