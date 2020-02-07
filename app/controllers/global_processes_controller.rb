@@ -14,4 +14,6 @@ class GlobalProcessesController <  ApplicationController
     #     erb :'/global_processes/new'
     # end
 
+    
+
 end
