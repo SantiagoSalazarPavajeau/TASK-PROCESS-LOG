@@ -32,4 +32,9 @@ class ApplicationController < Sinatra::Base
     redirect to "/global_processes/#{@global_process.id}"
   end
 
+  get '/global_processes/:id' do
+    @global_process = GlobalProcess.find(params[:id])
+    erb :'global_processes/show'
+  end
+
 end

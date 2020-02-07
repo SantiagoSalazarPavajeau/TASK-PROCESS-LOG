@@ -1,0 +1,8 @@
+<h1> You have created the Global Process:   </h1>
+<h3> <%= @global_process.name%> </h3>
+<h1> with tasks: </h1>
+
+<%@global_process.tasks.each do |task|%>
+<h3> <ol><li><%=task.description%></li> </ol></h3>
+<%end%>
+<br>
