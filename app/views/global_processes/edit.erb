@@ -1,0 +1,26 @@
+<h1> Edit Global Process: <%=@global_process.name%> </h1>
+
+<form method="POST" action="/global_processes/<%= @global_process.id%>">
+
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+  <label for="name"> Edit Global Process's Name: </label>
+<br>
+  <input type="text" name="global_process[name]" value = "<%=@global_process.name%>">
+<br>
+  
+  
+<h3> Available tasks: </h3>
+<% @tasks.each do |task| %>
+  <input type="checkbox" name="global_process[task_ids][]" id="<%= task.id %>" value="<%= task.id %>" <%='checked' if @global_process.tasks.include?(task) %>>  <%= task.description %><br>
+<% end %>
+<br>
+
+<h3> And/or, create a new task for a Global Process: </h3>
+    <label>Description:</label>
+      <input  type="text" name="task[description]" value= "Make customer happy">
+<br><br>
+
+<input type="submit" value="Update Global Process">
+
+</form>

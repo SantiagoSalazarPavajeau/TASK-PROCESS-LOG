@@ -37,6 +37,12 @@ class ApplicationController < Sinatra::Base
     erb :'global_processes/show'
   end
 
+  get '/global_processes/:id/edit' do
+    @global_process = GlobalProcess.find(params[:id])
+    @tasks = Task.all
+    erb :'global_processes/edit'
+  end
+
   delete '/global_processes/:id' do
     @global_process = GlobalProcess.find(params[:id])
     @global_process.delete
