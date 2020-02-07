@@ -1,0 +1,8 @@
+<h1> List of tasks </h1>
+
+<% @jobs.each do |job|%>
+<h3> Job name: <%= job.name%> </h3>
+    <% job.tasks.each do |task|%>
+        <%= task.description%> <br>
+    <%end%>
+<%end%>
