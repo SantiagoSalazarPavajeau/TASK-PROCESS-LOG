@@ -1,4 +1,4 @@
-"#{task.descrption}"     "#{task.job}"  "#{task.global_process}"
+# "#{task.descrption}"     "#{task.job}"  "#{task.global_process}"
 
-task.job
+# task.job
 
