@@ -1,10 +1,10 @@
 <h1> List of Global Processes: </h1>
 
 <%@global_processes.each do |global_process|%>
-<a href="global_processes/<%= global_process.id %>"> <%= global_process.name%> </a> 
+<p><a href="global_processes/<%= global_process.id %>"> <%= global_process.name%> </a> 
     <%if current_user == global_process.user%>
-        <a href="global_processes/<%= global_process.id %>/edit">    (edit)</a> <br>
+        <a href="global_processes/<%= global_process.id %>/edit">    (edit)</a> <br> </p>
     <%else%>
-         <p>Not available for edit <br> </p>
+        Not available for edit 
     <%end%>
 <%end%>
