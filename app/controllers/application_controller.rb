@@ -12,6 +12,17 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :home
   end
+helpers do
+
+  def self.current_user(session)
+    User.find_by(id: session[:user_id])
+  end
+
+  def self.is_logged_in?(session)
+    !!session[:user_id]
+  end
+
+end
 
   get '/tasks_by_job' do
     @jobs = Job.all
