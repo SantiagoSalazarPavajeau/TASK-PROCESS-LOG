@@ -7,8 +7,8 @@ class UsersController <  ApplicationController
         erb :'/users/home'
     end
       
-    get '/users/failure' do
-      erb :'/users/failure'
+    get '/failure' do
+      erb :'/failure'
     end
     
     get "/signup" do
