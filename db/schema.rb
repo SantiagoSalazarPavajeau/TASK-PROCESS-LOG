@@ -15,21 +15,24 @@ ActiveRecord::Schema.define(version: 20200205222915) do
 
   create_table "global_processes", force: :cascade do |t|
     t.string   "name"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "jobs", force: :cascade do |t|
     t.string   "name"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "description"
+    t.text     "description"
     t.integer  "job_id"
     t.integer  "global_process_id"
     t.integer  "order"
+    t.integer  "user_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
