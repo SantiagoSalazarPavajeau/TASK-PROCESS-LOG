@@ -37,7 +37,7 @@ class UsersController <  ApplicationController
         session[:user_id] = @user.id
         redirect '/users/home'
       else
-        redirect '/users/failure'
+        redirect '/failure'
       end
   end
 
