@@ -16,11 +16,7 @@ class UsersController <  ApplicationController
       erb :'/signup'
     end
 
-    get '/login' do
-      erb :'/login'
-    end
-  
-    post "/users" do
+    post "/signup" do
       #  post request to get the users info
       if params[:name] != "" && params[:email] != "" && params[:password] != ""
         @user = User.create(name: params[:name], email: params[:email], password: params[:password])
@@ -30,5 +26,21 @@ class UsersController <  ApplicationController
         erb :"/users/failure"
       end
     end
+
+    get '/login' do
+      erb :'/login'
+    end
+
+    post '/login' do
+      @user = User.find_by(email: params["email"])
+      if @user && @user.authenticate(params[:password])
+        session[:user_id] = @user.id
+        redirect '/users/home'
+      else
+        redirect '/users/failure'
+      end
+  end
+  
+    
 
 end
