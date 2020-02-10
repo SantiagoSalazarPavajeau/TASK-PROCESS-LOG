@@ -9,13 +9,7 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "secret"
   end
 
-  get '/' do
-    if logged_in?
-      redirect to "/users/home"
-    else
-      erb :home
-    end
-  end
+
 
   helpers do
 
@@ -27,6 +21,14 @@ class ApplicationController < Sinatra::Base
       !!@current_user
     end
 
+  end
+
+  get '/' do
+    if logged_in?
+      redirect to "/users/home"
+    else
+      erb :home
+    end
   end
 
   get '/tasks_by_job' do
