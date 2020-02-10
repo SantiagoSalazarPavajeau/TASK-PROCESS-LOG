@@ -9,5 +9,7 @@ run ApplicationController
 use UsersController
 use JobsController
 use GlobalProcessesController
+use TasksController
+
 
 

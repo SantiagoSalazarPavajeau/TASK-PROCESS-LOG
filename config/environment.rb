@@ -12,6 +12,7 @@ require './app/controllers/application_controller'
 require './app/controllers/users_controller'
 require './app/controllers/jobs_controller'
 require './app/controllers/global_processes_controller'
+require './app/controllers/tasks_controller'
 
 
 require_all 'app'
