@@ -5,6 +5,8 @@ class Job < ActiveRecord::Base
     #processes have many jobs through tasks
     has_many :tasks
     has_many :global_processes, :through => :tasks
+    belongs_to :user
+
 end
 
 
