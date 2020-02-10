@@ -11,9 +11,13 @@ class UsersController <  ApplicationController
       erb :'/users/failure'
     end
     
-    get "/users/signup" do
+    get "/signup" do
       # get request for signup form
-      erb :'/users/signup'
+      erb :'/signup'
+    end
+
+    get '/login' do
+      erb :'/login'
     end
   
     post "/users" do

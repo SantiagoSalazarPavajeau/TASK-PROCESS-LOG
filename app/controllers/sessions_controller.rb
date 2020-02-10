@@ -2,9 +2,7 @@ require './config/environment'
 
 class SessionsController <  ApplicationController
 
-    get '/login' do
-      erb :'/login'
-    end
+    
     
     post '/sessions' do
         @user = User.find_by(email: params["email"])
