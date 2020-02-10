@@ -1,33 +1,25 @@
-
-global_process_1_new_guitar_order = GlobalProcess.create(name: 'Food Order')
-gp1_task_1 = Task.create(description: 'Take order & Put food order into cash register', job: server, global_process: global_process_1_new_guitar_order)
-gp1_task_2 = Task.create(description: 'Prepare food ', job: cook, global_process: global_process_1_new_guitar_order)
-gp1_task_3 = Task.create(description: 'Deliver food to customer', job: food_runner, global_process: global_process_1_new_guitar_order)
+yakob = User.create(name: 'Yakob', email: 'yakob@gmail.com', password: 'password2')
 
 
-global_process_2_custom_guitar = GlobalProcess.create(name: 'Bar Order')
-gp2_task_1 = Task.create(description: 'Put order into custom guitar system', job: order_administrator, global_process: global_process_2_custom_guitar)
-gp2_task_2 = Task.create(description: 'Build guitar to customer requests', job: guitar_luthier, global_process: global_process_2_custom_guitar)
-gp2_task_3 = Task.create(description: 'Deliver guitar to customer', job: delivery_worker, global_process: global_process_2_custom_guitar)
-
-global_process_3_rental_guitar = GlobalProcess.create(name: 'Online Order')
+food_order = GlobalProcess.create(name: 'Food Order', user: yakob)
+cash_register_food = Task.create(description: 'Take order & Put food order into cash register', job: server, global_process: food_order, user: yakob)
+cook_food = Task.create(description: 'Prepare food ', job: cook, global_process: food_order, user: yakob)
+deliver_food = Task.create(description: 'Deliver food to customer', job: food_runner, global_process: food_order, user: yakob)
 
 
-server = Job.create(name: 'Server')
-gp1_task_1 = Task.create(description: 'Put order into system', job: order_administrator, global_process: global_process_1_new_guitar_order)
-gp2_task_1 = Task.create(description: 'Put order into custom guitar system', job: order_administrator, global_process: global_process_2_custom_guitar)
-gp3_task_1 = Task.create(description: 'Put order into guitar rental system', job: order_administrator, global_process: global_process_3_rental_guitar)
+bar_order = GlobalProcess.create(name: 'Bar Order', user: yakob)
+take_bar_order = Task.create(description: 'Take order', job: bartender, global_process: bar_order, user: yakob)
+make_drink = Task.create(description: 'Make drink with ingredients', job: bartender, global_process: bar_order, user: yakob)
+deliver_and_charge = Task.create(description: 'Deliver drink to customer and take payment', job: bartender, global_process: bar_order, user: yakob)
+
+online_order = GlobalProcess.create(name: 'Online Order', user: yakob)
+cook_food_to_online_order = Task.create(description: 'Prepare food to online request', job: cook, global_process: online_order, user: yakob)
+give_online_order = Task.create(description: 'Give online order food to customer', job: food_runner, global_process: online_order, user: yakob)
 
 
-cook = Job.create(name: 'Cook')
-gp1_task_2 = Task.create(description: 'Pick up new guitar from wharehouse', job: warehouse_worker, global_process: global_process_1_new_guitar_order)
-gp3_task_2 = Task.create(description: 'Pick up rental guitar from wharehouse', job: warehouse_worker, global_process: global_process_3_rental_guitar)
+server = Job.create(name: 'Server', user: yakob)
+cook = Job.create(name: 'Cook', user: yakob)
+bartender = Job.create(name: 'Bartender', user: yakob)
+food_runner = Job.create(name: 'Food Runner', user: yakob)
 
-bartender = Job.create(name: 'Bartender' )
-gp2_task_2 = Task.create(description: 'Build guitar to customer requests', job: guitar_luthier, global_process: global_process_2_custom_guitar)
-
-food_runner = Job.create(name: 'Food Runner')
-gp1_task_3 = Task.create(description: 'Deliver guitar to store', job: delivery_worker, global_process: global_process_1_new_guitar_order)
-gp2_task_3 = Task.create(description: 'Deliver guitar to customer', job: delivery_worker, global_process: global_process_2_custom_guitar)
-gp3_task_3 = Task.create(description: 'Deliver rental guitar to event', job: delivery_worker, global_process: global_process_3_rental_guitar)
 
