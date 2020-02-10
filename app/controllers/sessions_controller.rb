@@ -2,8 +2,8 @@ require './config/environment'
 
 class SessionsController <  ApplicationController
 
-    get '/sessions/login' do
-      erb :'/sessions/login'
+    get '/login' do
+      erb :'/login'
     end
     
     post '/sessions' do
