@@ -39,12 +39,12 @@ class UsersController <  ApplicationController
       else
         redirect '/failure'
       end
-  end
+    end
 
-  get '/logout' do
+    get '/logout' do
     session.clear
     redirect '/'
-  end
+    end
   
     
 
