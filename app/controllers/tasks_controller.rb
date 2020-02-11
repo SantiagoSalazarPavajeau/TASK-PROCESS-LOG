@@ -2,6 +2,8 @@ require './config/environment'
 
 class TasksController < ApplicationController
 
+    
+
     get "/tasks/index_by_job" do
         @jobs = Job.all
         erb :"tasks/index_by_job"

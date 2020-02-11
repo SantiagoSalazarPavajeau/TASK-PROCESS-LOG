@@ -14,20 +14,26 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-    <div class="nav">
-      <a href="/logout">Log Out</a>
-      <a href="/">Home</a>
-      <a href="/jobs"> All Jobs </a>
-      <a href="/global_processes"> All Global Processes </a>
-    </div>
+
     <div class="wrapper">
+              <a href="/">Home  </a>
 
-        <%= yield %>
+<div class="nav">
+      <a href="/jobs"> Jobs   </a> <br>
+      <a href="/global_processes"> Global Processes   </a>
 
+    </div>
+        <%= yield %><br><br>
+        <p>Logged in as: <%= current_user.name%>   </p>
+        <a href="/logout">Log Out  </a> 
       <footer class="branding">
         <small>&copy; 2020 <strong>TaskProcessLog</strong></small>
       </footer>
+
     </div>
+        
+
+
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!--[if lt IE 7]>
