@@ -1,4 +1,4 @@
-<h1> Edit job: <%=@job.name%> </h1>
+<h1> Edit Job: <%=@job.name%> </h1>
 
 <form method="POST" action="/jobs/<%= @job.id%>">
 
@@ -17,7 +17,7 @@
 
 <h2> And/or, create a new task for a job: </h2>
 <br>
-  <label>description:</label>
+  <label>Description:</label>
   <input  type="text" name="task[description]" value= "Dig for diamonds">
 <br>
 

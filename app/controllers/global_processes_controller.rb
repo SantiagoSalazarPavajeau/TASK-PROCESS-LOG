@@ -47,8 +47,8 @@ class GlobalProcessesController <  ApplicationController
         if !params["task"]["description"].empty?
             @global_process.tasks << Task.create(description: params["task"]["description"])
         end
-    
-        redirect to "/global_processes/#{@global_process.id}"
+        erb :'global_processes/show'
+        #redirect to "/global_processes/#{@global_process.id}"
       end
     
       delete '/global_processes/:id' do
