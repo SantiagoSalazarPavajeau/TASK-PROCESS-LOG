@@ -7,7 +7,9 @@
 <%end%>
 <br>
 
+<% if current_user.id == @global_process.user.id%>
 <form action="/global_processes/<%= @global_process.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete Global Process">
 </form>
+<%end%>

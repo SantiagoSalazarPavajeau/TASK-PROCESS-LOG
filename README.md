@@ -19,3 +19,8 @@ tasks views:
     - edit task descrption
     - display tasks by processes or jobs
 
+View of models by user "My Maps"
+
+CSS to put tasks into boxes
+
+User can only access their data not other users: (if statement at begining of edit view?)
