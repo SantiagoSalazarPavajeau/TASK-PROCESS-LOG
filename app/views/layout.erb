@@ -24,7 +24,9 @@
 
     </div>
         <%= yield %><br><br>
+        <%if logged_in?%>
         <p>Logged in as: <%= current_user.name%>   </p>
+        <%end%>
         <a href="/logout">Log Out  </a> 
       <footer class="branding">
         <small>&copy; 2020 <strong>TaskProcessLog</strong></small>

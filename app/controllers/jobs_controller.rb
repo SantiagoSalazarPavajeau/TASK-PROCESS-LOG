@@ -35,22 +35,32 @@ class JobsController < ApplicationController
     get '/jobs/:id/edit' do
         # edit jobs form
         @job = Job.find(params[:id])
-        @tasks = Task.all
-        erb :'jobs/edit'
+
+        if logged_in? && current_user == @job.user
+            @tasks = Task.all
+            erb :'jobs/edit'
+        else
+            redirect to "/jobs/#{@job.id}"
+        end
     end
 
     patch '/jobs/:id' do
         #modifies job with :id
-        if !params[:job].keys.include?("task_ids")
-            params[:job]["task_ids"] = []
-        end
         @job = Job.find(params[:id])
-        @job.update(params[:job])
-        if !params["task"]["description"].empty?
-            @job.tasks << Task.create(description: params["task"]["description"])
+        if logged_in? && current_user == @job.user
+
+            if !params[:job].keys.include?("task_ids")
+                params[:job]["task_ids"] = []
+            end
+            @job.update(params[:job])
+            if !params["task"]["description"].empty?
+                @job.tasks << Task.create(description: params["task"]["description"])
+            end
+            
+            redirect to "/jobs/#{@job.id}"
+        else
+            redirect to "/jobs/#{@job.id}"
         end
-        
-        redirect to "/jobs/#{@job.id}"
     end
 
     delete '/jobs/:id' do
