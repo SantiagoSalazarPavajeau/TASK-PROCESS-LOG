@@ -27,18 +27,22 @@ class GlobalProcessesController <  ApplicationController
         erb :'global_processes/show'
       end
     
-      get '/global_processes/:id/edit' do
-        @global_process = GlobalProcess.find(params[:id])
+    get '/global_processes/:id/edit' do
+      @global_process = GlobalProcess.find(params[:id])
+      if logged_in? && current_user == @global_process.user
         @tasks = Task.all
         erb :'global_processes/edit'
+      else
+        redirect to "/global_processes/#{@global_process.id}"
       end
+    end
     
       
     
     patch '/global_processes/:id' do
       @global_process = Job.find(params[:id])
 
-      # if logged_in? && current_user == @global_process.user
+      if logged_in? && current_user == @global_process.user
         if !params[:global_process].keys.include?("task_ids")
             params[:global_process]["task_ids"] = []
         end
@@ -49,9 +53,9 @@ class GlobalProcessesController <  ApplicationController
             @global_process.tasks << Task.create(description: params["task"]["description"])
         end
         erb :'global_processes/show'
-      # else
-      #   redirect to "/global_processes/#{@global_process.id}"
-      # end
+      else
+        redirect to "/global_processes/#{@global_process.id}"
+      end
     end
     
       delete '/global_processes/:id' do
