@@ -1,6 +1,5 @@
-<h1> Job:   </h1>
-<h3> <%= @job.name%> </h3>
-<h1> with tasks: </h1>
+<h1> <%= @job.name%> </h1> 
+<h2> with tasks: </h2>
 
 <%@job.tasks.each do |task|%>
 <h3> <ol><li><%=task.description%></li> </ol></h3>
