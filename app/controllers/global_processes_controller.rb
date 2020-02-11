@@ -18,16 +18,12 @@ class GlobalProcessesController <  ApplicationController
     end
     
     post '/global_processes' do
-      if logged_in? && current_user == @global_process.user
-        
+        @global_process = GlobalProcess.create(params[:global_process])	
         if !params["task"]["description"].empty?
-            @global_process.tasks << Task.create(description: params["task"]["description"])
-            current_user.global_processes << @global_process
+          @global_process.tasks << Task.create(description: params["task"]["description"])
+          current_user.global_processes << @global_process
         end
-        redirect to "/global_processes/#{@global_process.id}"
-      else
-        redirect to "/global_processes/#{@global_process.id}"
-      end
+      redirect to "/global_processes/#{@global_process.id}" 
     end
     
       get '/global_processes/:id' do
