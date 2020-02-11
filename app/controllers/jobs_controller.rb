@@ -12,7 +12,11 @@ class JobsController < ApplicationController
     get '/jobs/new' do
         #create new job form
         @tasks = Task.all
-        erb :'/jobs/new'
+        if logged_in?
+            erb :'/jobs/new'
+        else
+            redirect to "/jobs"
+        end
     end
 
     post '/jobs' do
