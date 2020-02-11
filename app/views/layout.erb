@@ -26,8 +26,11 @@
         <%= yield %><br><br>
         <%if logged_in?%>
         <p>Logged in as: <%= current_user.name%>   </p>
-        <%end%>
         <a href="/logout">Log Out  </a> 
+        <%else%>
+        <a href="/signup"> Sign Up</a>
+        <a href="/login">Log In</a>
+        <%end%>
       <footer class="branding">
         <small>&copy; 2020 <strong>TaskProcessLog</strong></small>
       </footer>
