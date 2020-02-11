@@ -1,10 +1,8 @@
 <h1> List of jobs: </h1>
 
 <%@jobs.each do |job|%>
-<p><a href="jobs/<%= job.id %>"> <%= job.name%> </a> 
+<p><a href="jobs/<%= job.id %>"> <%= job.name%> @ <%=job.user.name%> </a> 
     <%if logged_in? && current_user == job.user%>
         <a href="jobs/<%= job.id %>/edit">    (edit)</a> <br> </p>
-    <%else%>
-        Not available for edit 
     <%end%>
 <%end%>
