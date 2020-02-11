@@ -6,7 +6,7 @@
 <%end%>
 <br>
 
-<% if current_user.id == @global_process.user.id%>
+<% if logged_in? && current_user.id == @global_process.user.id%>
 <a href="global_processes/<%= @global_process.id %>"> Edit </a> 
 <form action="/global_processes/<%= @global_process.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">

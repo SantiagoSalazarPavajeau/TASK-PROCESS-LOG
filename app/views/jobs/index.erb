@@ -2,7 +2,7 @@
 
 <%@jobs.each do |job|%>
 <p><a href="jobs/<%= job.id %>"> <%= job.name%> </a> 
-    <%if current_user == job.user%>
+    <%if logged_in? && current_user == job.user%>
         <a href="jobs/<%= job.id %>/edit">    (edit)</a> <br> </p>
     <%else%>
         Not available for edit 

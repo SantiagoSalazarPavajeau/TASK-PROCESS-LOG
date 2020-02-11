@@ -6,7 +6,7 @@
 <%end%>
 <br>
 
-<% if current_user.id == @job.user.id%>
+<% if logged_in? && current_user.id == @job.user.id%>
 <a href="jobs/<%= @job.id %>/edit"> Edit</a>
 <form action="/jobs/<%= @job.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">

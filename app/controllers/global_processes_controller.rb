@@ -7,20 +7,28 @@ class GlobalProcessesController <  ApplicationController
         erb :'/global_processes/index'
     end
     
-      get '/global_processes/new' do
-            @tasks = Task.all
-            erb :'/global_processes/new'
+    get '/global_processes/new' do
+      @tasks = Task.all
+      if logged_in?
+        erb :'/global_processes/new'
+      else
+        redirect to "/global_processes"
       end
+
+    end
     
-      post '/global_processes' do
-        @global_process = GlobalProcess.create(params[:global_process])
+    post '/global_processes' do
+      if logged_in? && current_user == @global_process.user
         
         if !params["task"]["description"].empty?
             @global_process.tasks << Task.create(description: params["task"]["description"])
             current_user.global_processes << @global_process
         end
         redirect to "/global_processes/#{@global_process.id}"
+      else
+        redirect to "/global_processes/#{@global_process.id}"
       end
+    end
     
       get '/global_processes/:id' do
         @global_process = GlobalProcess.find(params[:id])
