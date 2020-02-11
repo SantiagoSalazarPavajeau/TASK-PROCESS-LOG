@@ -1,4 +1,4 @@
-<h1> <%= @job.name%> </h1> 
+<h1> <%= @job.name%> @ <%= @job.user.name%> </h1> 
 <h2> with tasks: </h2>
 
 <%@job.tasks.each do |task|%>

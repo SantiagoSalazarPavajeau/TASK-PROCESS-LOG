@@ -1,4 +1,4 @@
-<h1> <%= @global_process.name%>  </h1>
+<h1> <%= @global_process.name%> @ <%=@global_process.user.name%> </h1>
 <h2> with tasks: </h2>
 
 <%@global_process.tasks.each do |task|%>
