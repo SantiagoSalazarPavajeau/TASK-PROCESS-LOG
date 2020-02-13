@@ -1,5 +1,7 @@
 To do:
 
+fix edit permissions for all users (santis steak house not working)
+
 tasks views & controller: 
     - new task that can be assigned to a process or a job
     - edit task descrption
