@@ -1,16 +1,37 @@
-To do:
+# Task Process Log
 
-fix edit permissions for all users (santis steak house not working)
+This project is built on ruby, activerecord and sinatra as a web app. It allows to keep track of work tasks in a business.
 
-tasks views & controller: 
-    - new task that can be assigned to a process or a job
-    - edit task descrption
-    - display tasks by processes or jobs
+## Getting Started
 
-View of models by user "My Maps"
+You can clone this project into a local environment with ruby and the additional gems, then run the app on a local server.
 
-CSS to put tasks into boxes
+## Built With
 
-User can only access their data not other users: (if statement at begining of edit view?)
+* [Sinatra](https://www.rubydoc.info/gems/sinatra) - The web framework used
+* [ActiveRecord](https://www.rubydoc.info/gems/activerecord) - ORM
+* [Ruby](https://www.ruby-lang.org/en/documentation/) 
 
-Home User view by tables and css so everything is easy to understand
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/SantiagoSalazarPavajeau/TASK-PROCESS-LOG. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+
+
+## Authors
+
+* **Santiago Salazar Pavajeau** - *Initial work* - (https://github.com/SantiagoSalazarPavajeau)
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Flatiron School
+* Z-Drake, Madeline (Cohort Leads)
+* Cohort Classmates 10/07/19
+* SO (Javi)
+
+
+
