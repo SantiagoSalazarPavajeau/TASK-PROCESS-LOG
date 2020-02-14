@@ -1,5 +1,22 @@
 <h1> <%=@user.name%> </h1>
 
+<h2> Jobs: </h2>
 <% @user.jobs.each do |job|%>
-    <a href='/jobs/<%=job.id%>'> <%=job.name%> </p>
+    <a href='/jobs/<%=job.id%>'> <%=job.name%> </a> 
+    <%if logged_in? && current_user.id == job.user.id%>
+    <a href='/jobs/<%=job.id%>/edit'> (edit) </a> 
+    <%end%> 
+     <br>
+<%end%>
+
+<br>
+
+<h2> Processes: </h2>
+
+<% @user.global_processes.each do |global_process|%>
+    <a href='/global_processes/<%=global_process.id%>'> <%=global_process.name%></a>
+    <% if logged_in? && current_user.id == global_process.user.id%>
+        <a href='/global_processes/<%=global_process.id%>/edit'> (edit) </a>
+    <%end%>
+    <br>
 <%end%>
