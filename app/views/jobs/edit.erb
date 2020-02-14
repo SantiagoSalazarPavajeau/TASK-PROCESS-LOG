@@ -11,14 +11,14 @@
   
   
 <h2> Available tasks: </h2>
-<% @tasks.each do |task| %>
+<% @job.tasks.each do |task| %>
   <input type="checkbox" name="job[task_ids][]" id="<%= task.id %>" value="<%= task.id %>" <%='checked' if @job.tasks.include?(task) %>>  <%= task.description %><br>
 <% end %>
 
 <h2> And/or, create a new task for a job: </h2>
 <br>
   <label>Description:</label>
-  <input  type="text" name="task[description]" value= "Dig for diamonds">
+  <input  type="text" name="task[description]" value= "Make customer happy">
 <br>
 
 <input type="submit" value="Update Job">
