@@ -1,4 +1,4 @@
-<h2> Welcome to the Task-Process Log **<%=@user.name %>** </h2>
+<h2>  Welcome to the Task-Process Log for: <i> **<%=@user.name %>** </i> </h2>
 
 <a href="/jobs/new"> Create a new Job </a>
 
@@ -8,10 +8,14 @@
 
 <br><br>
 
-<a href="/tasks/index_by_global_processes"> List tasks by Global Processes </a>
 
-<br><br>
+<%if logged_in? && current_user.id == @user.id%>
+      <a href="/jobs" > Jobs   </a> <br><br>
+      <a href="/global_processes" > Processes   </a> <br> <br>
+      <a href="/tasks" > View all </a> <br> 
 
-<a href="/tasks/index_by_job"> List tasks by Jobs </a>
+<%end%>
+
+
 
 

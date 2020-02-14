@@ -42,7 +42,7 @@ class JobsController < ApplicationController
 
         if logged_in? && current_user == @job.user
             @tasks = Task.all
-            erb :'jobs/edit'
+            redirect to "jobs/#{@job.id}/edit"
         else
             redirect to "/jobs/#{@job.id}"
         end

@@ -1,13 +1,15 @@
-<h1> Job : <%= @job.name%> </h1> 
-<h2> with tasks: </h2>
+<br>
+<h2> Job :  </h2>
+<h3> <%= @job.name%> </h3> <br>
+<p> <u>Tasks: </u></p>
 
 <%@job.tasks.each do |task|%>
-<h3> <ol><li><%=task.description%></li> </ol></h3>
+<p> <ol><li><%=task.description%></li> </ol></p>
 <%end%>
 <br>
 
 <% if logged_in? && current_user.id == @job.user.id%>
-<a href="jobs/<%= @job.id %>/edit"> Edit</a>
+<a href="<%= @job.id %>/edit"> Edit</a> <br> 
 <form action="/jobs/<%= @job.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete Job">

@@ -1,8 +1,0 @@
-<h1> List of tasks by Global Processes </h1>
-
-<% @global_processes.each do |global_process|%>
-<h3> Global Process name: <%= global_process.name%> </h3>
-    <% global_process.tasks.each do |task|%>
-        <%= task.description%> <br>
-    <%end%>
-<%end%>

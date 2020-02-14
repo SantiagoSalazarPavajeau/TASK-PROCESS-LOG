@@ -1,13 +1,14 @@
-<h1> Process: <%= @global_process.name%> </h1>
-<h2>  with tasks: </h2>
+<h2> Process: </h2>
+<h3> <%= @global_process.name%> </h3> <br>
+<p> <u> Tasks: </u> </p>
 
 <%@global_process.tasks.each do |task|%>
-<h3> <ol><li><%=task.description%></li> </ol></h3>
+<p> <ol><li><%=task.description%></li> </ol></p>
 <%end%>
 <br>
 
 <% if logged_in? && current_user.id == @global_process.user.id%>
-<a href="global_processes/<%= @global_process.id %>"> Edit </a> 
+<a href="<%= @global_process.id %>/edit">    Edit</a> <br> 
 <form action="/global_processes/<%= @global_process.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete">

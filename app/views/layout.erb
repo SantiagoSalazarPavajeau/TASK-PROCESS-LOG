@@ -16,20 +16,17 @@
   <body>
 
     <div class="wrapper">
-              <a href="/">Home  </a>
-
+           
+ <a href="/"> <i>**<%= current_user.name if logged_in?%>**</i> Home  </a>
+    <a href="/users" style="margin-left: 50%" > All Companies   </a> <br>
 <div class="nav">
-      <%if logged_in?%>
-      <a href="/jobs"> <%=current_user.name%> Jobs   </a> <br>
-      <a href="/global_processes"> <%=current_user.name%> Global Processes   </a> <br>
-      <%end%>
-
-      <a href="/users"> All Companies   </a>
+  
 
     </div>
+    <br>
         <%= yield %><br><br>
         <%if logged_in?%>
-        <p>Logged in as: <%= current_user.name%>   </p>
+        <p>Logged in as: <i>**<%= current_user.name%>**</i>   </p>
         <a href="/logout">Log Out  </a> 
         <%else%>
         <a href="/signup"> Sign Up</a>

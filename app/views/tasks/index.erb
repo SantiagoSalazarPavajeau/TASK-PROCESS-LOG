@@ -1,0 +1,24 @@
+<h1> Processes at <%=current_user.name%> </h1>
+
+<% current_user.global_processes.each do |global_process|%>
+<h3> <%= global_process.name%>: </h3>
+<%if current_user == global_process.user%>
+        <a href="global_processes/<%= global_process.id %>/edit">    (edit)</a> <br> </p>
+    <%end%>
+    <% global_process.tasks.each do |task|%>
+        <%= task.description%> <br>
+    <%end%>
+<%end%>
+
+<h1> Jobs at <%=current_user.name%> </h1>
+
+<% current_user.jobs.each do |job|%>
+<h3> <%= job.name%>: </h3>
+    <%if logged_in? && current_user == job.user%>
+        <a href="jobs/<%= job.id %>/edit">    (edit)</a> <br> </p>
+    <%end%>
+    <% job.tasks.each do |task|%>
+        <%= task.description%> <br>
+    <%end%>
+<%end%>
+
