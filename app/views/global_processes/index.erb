@@ -1,7 +1,7 @@
-<h1> List of Global Processes: </h1>
+<h1> Processes at <%=current_user.name%> </h1>
 
 <%current_user.global_processes.each do |global_process|%>
-<p><a href="global_processes/<%= global_process.id %>"> <%= global_process.name%> @ <%=global_process.user.name%> </a> 
+<p><a href="global_processes/<%= global_process.id %>"> <%= global_process.name%> </a> 
     <%if current_user == global_process.user%>
         <a href="global_processes/<%= global_process.id %>/edit">    (edit)</a> <br> </p>
     <%end%>

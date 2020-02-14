@@ -1,6 +1,6 @@
 # Task Process Log
 
-This project is built on ruby, activerecord and sinatra as a web app. It allows to keep track of work tasks in a business.
+This project is built on ruby, activerecord and sinatra as a web app. It allows to keep track of work tasks in a small business.
 
 ## Getting Started
 

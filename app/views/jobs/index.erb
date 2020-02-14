@@ -1,7 +1,7 @@
-<h1> List of jobs: </h1>
+<h1> Jobs at <%=current_user.name%></h1>
 
-<%@jobs.each do |job|%>
-<p><a href="jobs/<%= job.id %>"> <%= job.name%> @ <%=job.user.name%> </a> 
+<%current_user.jobs.each do |job|%>
+<p><a href="jobs/<%= job.id %>"> <%= job.name%> </a> 
     <%if logged_in? && current_user == job.user%>
         <a href="jobs/<%= job.id %>/edit">    (edit)</a> <br> </p>
     <%end%>

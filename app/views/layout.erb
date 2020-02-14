@@ -19,8 +19,9 @@
               <a href="/">Home  </a>
 
 <div class="nav">
-      <a href="/jobs"> Jobs   </a> <br>
-      <a href="/global_processes"> Global Processes   </a>
+      <a href="/jobs"> <%=current_user.name%> Jobs   </a> <br>
+      <a href="/global_processes"> <%=current_user.name%> Global Processes   </a> <br>
+      <a href="/users"> All Companies   </a>
 
     </div>
         <%= yield %><br><br>
