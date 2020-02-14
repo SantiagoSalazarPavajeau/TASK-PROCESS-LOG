@@ -1,5 +1,5 @@
 <h1> <%=@user.name%> </h1>
 
 <% @user.jobs.each do |job|%>
-    <p> <%=job.name%> </p>
+    <a href='/jobs/<%=job.id%>'> <%=job.name%> </p>
 <%end%>
