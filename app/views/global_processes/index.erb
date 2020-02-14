@@ -1,6 +1,6 @@
 <h1> List of Global Processes: </h1>
 
-<%@global_processes.each do |global_process|%>
+<%current_user.global_processes.each do |global_process|%>
 <p><a href="global_processes/<%= global_process.id %>"> <%= global_process.name%> @ <%=global_process.user.name%> </a> 
     <%if current_user == global_process.user%>
         <a href="global_processes/<%= global_process.id %>/edit">    (edit)</a> <br> </p>
