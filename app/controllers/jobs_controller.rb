@@ -42,26 +42,24 @@ class JobsController < ApplicationController
 
         if logged_in? && current_user == @job.user
             @tasks = Task.all
-            redirect to "jobs/#{@job.id}/edit"
+            erb :"jobs/edit"
         else
             redirect to "/jobs/#{@job.id}"
         end
     end
 
-    patch '/jobs/:id' do
-        #modifies job with :id
+    patch '/jobs/:id' do #modifies job with :id
         @job = Job.find(params[:id])
         if logged_in? && current_user == @job.user
-
             if !params[:job].keys.include?("task_ids")
                 params[:job]["task_ids"] = []
             end
             @job.update(params[:job])
             if !params["task"]["description"].empty?
-                @job.tasks << Task.create(description: params["task"]["description"])
+                @job.tasks.build(params["task"])
             end
             
-            redirect to "/jobs/#{@job.id}"
+            erb :"/jobs/show"
         else
             redirect to "/jobs/#{@job.id}"
         end
