@@ -22,6 +22,8 @@ Confirm
 
 To do:
 
+Edit existing job not working
+
 If fields are empty on edit or create flash error
 
 

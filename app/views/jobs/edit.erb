@@ -11,7 +11,7 @@
 <h2> Tasks: </h2>
 <% current_user.global_processes.each do |global_process| %>
 <%global_process.tasks.each do |task|%>
-  <input type="checkbox" name="job[task_ids][]" id="<%= task.id %>" value="<%= task.id %>">  <%= task.description %><br>
+  <input type="checkbox" name="job[task_ids][]" id="<%= task.id %>" value="<%= task.id %>" <%= 'checked' if @job.tasks.include?(task) %>>  <%= task.description %><br>
 <% end %> 
 <% end %> 
 

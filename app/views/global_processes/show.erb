@@ -6,7 +6,7 @@
 <p> <ol><li><%=task.description%></li> </ol></p>
 
 <%end%>
-<i> (*Now you can assign tasks to a <a href="/jobs/new">  new job </a> or to an <a href="/jobs"> existing job.) </a> </i>
+<i> (*You can assign tasks to a <a href="/jobs/new">  new job </a> or to an <a href="/jobs"> existing job.) </a> </i>
 <br><br>
 
 <% if logged_in? && current_user.id == @global_process.user.id%>

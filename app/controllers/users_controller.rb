@@ -23,7 +23,7 @@ class UsersController <  ApplicationController
         session[:user_id] = @user.id
         redirect '/users/home'
       else
-        erb :"/users/failure"
+        erb :"/failure"
       end
     end
 

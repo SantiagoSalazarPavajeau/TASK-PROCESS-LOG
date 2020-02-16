@@ -49,9 +49,9 @@ class JobsController < ApplicationController
     patch '/jobs/:id' do #modifies job with :id
         @job = Job.find(params[:id])
         if logged_in? && current_user == @job.user
-            # if !params[:job].keys.include?("task_ids")
-            #     params[:job]["task_ids"] = []
-            # end
+            if !params[:job].keys.include?("task_ids")
+                params[:job]["task_ids"] = []
+            end
             # @job.update(params[:job])
             # if !params["task"]["description"].empty?
             @job.tasks.build(params["task"])

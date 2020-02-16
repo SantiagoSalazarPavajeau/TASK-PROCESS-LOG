@@ -7,6 +7,8 @@ class Job < ActiveRecord::Base
     has_many :global_processes, :through => :tasks
     belongs_to :user
 
+
+
 end
 
 
