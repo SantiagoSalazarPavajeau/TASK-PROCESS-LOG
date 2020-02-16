@@ -5,16 +5,11 @@
   <input type="text" id="job_name" name="job[name]" value="Name of New Job">
 
  
-
 <h2> Available tasks: </h2>
-<% current_user.tasks.each do |task| %>
+<%#@tasks = @tasks.uniq_by{|task| task.name}%>
+<% @tasks.each do |task| %>
   <input type="checkbox" name="job[task_ids][]" id="<%= task.id %>" value="<%= task.id %>">  <%= task.description %><br>
 <% end %> 
-
-<h2> Add a new task for a job: </h2>
-    <br>
-      <input  type="text" name="task[description]" value= "Description for Task">
-    <br>
 
 <input type="submit" value="Create New Job">  
 

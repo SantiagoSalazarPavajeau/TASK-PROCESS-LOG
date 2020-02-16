@@ -1,21 +1,18 @@
-<h1> Create a new global process: </h1>
 
 <form method="POST" action="/global_processes">
 
-  <label for="name"> Name: </label>
-  <input type="text" id="global_process_name" name="global_process[name]" value="New Process">
+  <input style="font-size:25px;" type="text" id="global_process_name" name="global_process[name]" value="New Process">
 
- 
+ <br><br>
 
-<h2> Available tasks: </h2>
+<h3> Current tasks: </h3>
 <% current_user.tasks.each do |task| %>
   <input type="checkbox" name="global_process[task_ids][]" id="<%= task.id %>" value="<%= task.id %>">  <%= task.description %><br>
 <% end %> 
+<br>
 
-<h2> Add a new task for a global process: </h2>
-    <br>
-    <label>description:</label>
-      <input  type="text" name="task[description]" value= "Make customer happy">
+<p> <i> Add a new task: </i> </p>
+  <textarea  type="text" name="task[description]" rows="5" cols="30">Make customer happy </textarea>
     <br>
 
 <input type="submit" value="Create New Global Process">  

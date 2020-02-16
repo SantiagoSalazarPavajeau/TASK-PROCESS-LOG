@@ -18,12 +18,20 @@ class GlobalProcessesController <  ApplicationController
     end
     
     post '/global_processes' do
-        @global_process = GlobalProcess.create(params[:global_process])	
-        if !params["task"]["description"].empty?
+      #dont send to error page if both form fields have text in them
+      if params[:global_process][:name] != "" && params["task"]["description"] != "" 
+        #dont send to error page if boxes are checked or task has text
+        # if !params[:global_processes][:task_ids].empty? || params["task"]["description"] != ""
+          @global_process = GlobalProcess.create(params[:global_process])
+        # if !params["task"]["description"].empty?
           @global_process.tasks << Task.create(description: params["task"]["description"])
           current_user.global_processes << @global_process
-        end
-      redirect to "/global_processes/#{@global_process.id}" 
+        # end
+        redirect to "/global_processes/#{@global_process.id}" 
+      else
+          erb :failure
+        
+      end
     end
     
       get '/global_processes/:id' do
@@ -51,10 +59,9 @@ class GlobalProcessesController <  ApplicationController
             params[:global_process]["task_ids"] = []
         end
 
-       
         #Explore with binding.pry... 
         @global_process.update(params[:global_process])
-        
+
         if !params["task"]["description"].empty?
           @global_process.tasks.build(params["task"])
         end

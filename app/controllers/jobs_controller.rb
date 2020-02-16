@@ -11,7 +11,7 @@ class JobsController < ApplicationController
 
     get '/jobs/new' do
         #create new job form
-        @tasks = Task.all
+        @tasks = current_user.tasks.all
         if logged_in?
             erb :'/jobs/new'
         else
@@ -23,10 +23,8 @@ class JobsController < ApplicationController
         #create one new job (button action)
         @job = Job.create(params[:job])
         #@job.tasks << Task.create(description: params["task"]["description"])
-        if !params["task"]["description"].empty?
-            @job.tasks.build(params["task"])
-            current_user.jobs << @job
-        end
+        @job.tasks.build(params["task"])
+        current_user.jobs << @job
         redirect to "/jobs/#{@job.id}"
     end
 
