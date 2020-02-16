@@ -6,7 +6,9 @@
 <%@job.tasks.each do |task|%>
 <p> <ol><li><%=task.description%></li> </ol></p>
 <%end%>
-<i><a href="/tasks" > (*View all)</a> </i><br> <br>
+<i><a href="/tasks" > (*View all)</a> <br>
+<a href="/jobs/new">  (*Add another new job) </a>
+</i><br> <br>
 <br>
 
 <% if logged_in? && current_user.id == @job.user.id%>

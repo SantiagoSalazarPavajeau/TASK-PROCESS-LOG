@@ -9,8 +9,8 @@
   
   
 <h3> Tasks: </h3>
-<% @global_process.tasks.each do |task| %>
-  <input type="checkbox" name="global_process[task_ids][]" id="<%= task.id %>" value="<%= task.id %>" <%='checked' if @global_process.tasks.include?(task) %>>  <%= task.description %><br>
+<% @tasks.each do |task| %>
+  <input type="checkbox" name="global_process[task_ids][]" id="<%= task.id %>" value="<%= task.id %>" checked >  <%= task.description %><br>
 <% end %>
 <br>
 

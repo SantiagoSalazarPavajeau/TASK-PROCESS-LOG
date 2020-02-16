@@ -24,7 +24,7 @@ class GlobalProcessesController <  ApplicationController
         # if !params[:global_processes][:task_ids].empty? || params["task"]["description"] != ""
           @global_process = GlobalProcess.create(params[:global_process])
         # if !params["task"]["description"].empty?
-          @global_process.tasks << Task.create(description: params["task"]["description"])
+          @global_process.tasks.build(params["task"])
           current_user.global_processes << @global_process
         # end
         redirect to "/global_processes/#{@global_process.id}" 
@@ -42,7 +42,7 @@ class GlobalProcessesController <  ApplicationController
     get '/global_processes/:id/edit' do
       @global_process = GlobalProcess.find(params[:id])
       if logged_in? && current_user == @global_process.user
-        @tasks = Task.all
+        @tasks = @global_process.tasks.all
         erb :'global_processes/edit'
       else
         redirect to "/global_processes/#{@global_process.id}"
@@ -54,7 +54,8 @@ class GlobalProcessesController <  ApplicationController
     patch '/global_processes/:id' do
       @global_process = GlobalProcess.find(params[:id])
       if logged_in? && current_user == @global_process.user
-        
+
+        # if there is no task_ids key create one which is an empty array 
         if !params[:global_process].keys.include?("task_ids")
             params[:global_process]["task_ids"] = []
         end
@@ -62,8 +63,11 @@ class GlobalProcessesController <  ApplicationController
         #Explore with binding.pry... 
         @global_process.update(params[:global_process])
 
+        #if description is not empty then build a task
         if !params["task"]["description"].empty?
-          @global_process.tasks.build(params["task"])
+          @task = Task.create(params[:task])
+          @global_process.tasks << @task
+          # @global_process.tasks.build(params["task"])
         end
         
         
