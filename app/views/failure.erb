@@ -1,13 +1,15 @@
 <h1>Houston, We Have a Problem</h1>
 <p>It seems there was a problem. Please return to <a href="/">the home page</a> and try again.</p>
 
-<% if @user.errors.any? %>
+<% if @user && @user.errors.any? %>
  
     <ul>
     <% @user.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
-    <% end %>
+<% end %>
 
     </ul>
-  </div>
+
+
+
