@@ -9,13 +9,12 @@
   <br>
   
 <h2> Tasks: </h2>
-<% @job.tasks.each do |task| %>
-  <input type="checkbox" name="job[task_ids][]" id="<%= task.id %>" value="<%= task.id %>" <%='checked' if @job.tasks.include?(task) %>>  <%= task.description %><br>
-<% end %>
-<br>
-<p> <i>Add a new task for the <%=@job.name%>:</i> </p>
-  <textarea  type="text" name="task[description]" value= "" rows="5" cols="30"> Make customer happy </textarea>
-<br>
+<% current_user.global_processes.each do |global_process| %>
+<%global_process.tasks.each do |task|%>
+  <input type="checkbox" name="job[task_ids][]" id="<%= task.id %>" value="<%= task.id %>">  <%= task.description %><br>
+<% end %> 
+<% end %> 
+
 
 <input type="submit" value="Update <%=@job.name%> Job">
 

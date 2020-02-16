@@ -6,9 +6,10 @@
 
  
 <h2> Available tasks: </h2>
-<%#@tasks = @tasks.uniq_by{|task| task.name}%>
-<% @tasks.each do |task| %>
+<% current_user.global_processes.each do |global_process| %>
+<%global_process.tasks.each do |task|%>
   <input type="checkbox" name="job[task_ids][]" id="<%= task.id %>" value="<%= task.id %>">  <%= task.description %><br>
+<% end %> 
 <% end %> 
 
 <input type="submit" value="Create New Job">  

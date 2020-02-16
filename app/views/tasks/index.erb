@@ -3,11 +3,12 @@
 <% current_user.global_processes.each do |global_process|%>
 <h3> <%= global_process.name%>: </h3>
 <%if current_user == global_process.user%>
-        <a href="global_processes/<%= global_process.id %>/edit">    (edit)</a> <br> </p>
+        <a href="global_processes/<%= global_process.id %>/edit">    (edit)</a> </p>
     <%end%>
     <% global_process.tasks.each do |task|%>
         <%= task.description%> <br>
     <%end%>
+    <br>
 <%end%>
 
 <h1> Jobs at <%=current_user.name%> </h1>
@@ -20,5 +21,6 @@
     <% job.tasks.each do |task|%>
         <%= task.description%> <br>
     <%end%>
+    <br>
 <%end%>
 
