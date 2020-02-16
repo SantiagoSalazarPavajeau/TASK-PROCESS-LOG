@@ -52,7 +52,7 @@ class JobsController < ApplicationController
             if !params[:job].keys.include?("task_ids")
                 params[:job]["task_ids"] = []
             end
-            # @job.update(params[:job])
+             @job.update(params[:job])
             # if !params["task"]["description"].empty?
             @job.tasks.build(params["task"])
             # end
