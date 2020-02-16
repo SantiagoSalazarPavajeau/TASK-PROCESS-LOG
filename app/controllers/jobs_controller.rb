@@ -24,7 +24,7 @@ class JobsController < ApplicationController
         @job = Job.create(params[:job])
         #@job.tasks << Task.create(description: params["task"]["description"])
         if !params["task"]["description"].empty?
-            @job.tasks << Task.create(description: params["task"]["description"])
+            @job.tasks.build(params["task"])
             current_user.jobs << @job
         end
         redirect to "/jobs/#{@job.id}"
