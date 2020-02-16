@@ -20,9 +20,17 @@ class UsersController <  ApplicationController
       #  post request to get the users info
       if params[:name] != "" && params[:email] != "" && params[:password] != ""
         @user = User.create(name: params[:name], email: params[:email], password: params[:password])
-        session[:user_id] = @user.id
-        redirect '/users/home'
+        if @user.valid?
+          session[:user_id] = @user.id
+          redirect '/users/home'
+        else
+          @user = User.new(params)
+          @user.valid?
+          erb :"/failure"
+        end
       else
+        @user = User.new(params)
+        @user.valid?
         erb :"/failure"
       end
     end
