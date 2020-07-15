@@ -6,12 +6,14 @@
 <%@job.tasks.each do |task|%>
 <p> <ol><li><%=task.description%></li> </ol></p>
 <%end%>
+
+<% if logged_in? && current_user.id == @job.user.id%>
+
 <i><a href="/tasks" > (*View all)</a> <br>
 <a href="/jobs/new">  (*Add another new job) </a>
 </i><br> <br>
 <br>
 
-<% if logged_in? && current_user.id == @job.user.id%>
 <a href="<%= @job.id %>/edit"> Edit</a> <br> 
 <form action="/jobs/<%= @job.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">

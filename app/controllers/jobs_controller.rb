@@ -52,11 +52,8 @@ class JobsController < ApplicationController
             if !params[:job].keys.include?("task_ids")
                 params[:job]["task_ids"] = []
             end
-             @job.update(params[:job])
-            # if !params["task"]["description"].empty?
+            @job.update(params[:job])
             @job.tasks.build(params["task"])
-            # end
-            
             erb :"/jobs/show"
         else
             redirect to "/jobs/#{@job.id}"

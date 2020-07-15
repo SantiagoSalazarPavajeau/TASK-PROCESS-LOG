@@ -9,10 +9,4 @@ class User < ActiveRecord::Base
     validates :email , presence: true
     validates :email , uniqueness: true
     validates :password , length: {in: 7..20}
-
-    
-    
-
-
-
 end

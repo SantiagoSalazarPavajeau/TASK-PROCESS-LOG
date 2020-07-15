@@ -6,10 +6,10 @@
 <p> <ol><li><%=task.description%></li> </ol></p>
 
 <%end%>
+<% if logged_in? && current_user.id == @global_process.user.id%>
 <i> (*You can assign tasks to a <a href="/jobs/new">  new job </a> or to an <a href="/jobs"> existing job.) </a> </i>
 <br><br>
 
-<% if logged_in? && current_user.id == @global_process.user.id%>
 <a href="<%= @global_process.id %>/edit">    Edit</a> <br> 
 
 <form action="/global_processes/<%= @global_process.id %>" method="post">
