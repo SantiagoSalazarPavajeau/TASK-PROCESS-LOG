@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+ruby '2.6.1'
 gem 'sinatra'
 gem 'activerecord', '~> 4.2', '>= 4.2.6', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
@@ -14,8 +15,8 @@ gem 'bcrypt'
 gem 'tux'
 gem 'sinatra-flash'
 
-gem 'pg', :group => :production
-gem 'sqlite3', :group => :development
+gem 'pg', '~> 0.18'
+gem 'sqlite3', '~> 1.3.6', :group => :development
 
 
 group :test do
